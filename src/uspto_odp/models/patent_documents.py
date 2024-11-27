@@ -56,10 +56,15 @@ class PatentDocument:
     def from_dict(cls, data: dict) -> 'PatentDocument':
         # Format the timezone offset to include a colon
         date_str = data['officialDate']
-        # Handle timezone offset without colon (e.g., -0500 -> -05:00)
-        if match := re.search(r'([+-])(\d{2})(\d{2})$', date_str):
-            sign, hours, minutes = match.groups()
-            date_str = date_str[:-4] + f"{sign}{hours}:{minutes}"
+        
+        # Remove any existing timezone formatting first
+        if date_str.endswith('Z'):
+            date_str = date_str[:-1] + '+00:00'
+        else:
+            # Handle timezone offset without colon (e.g., -0500 -> -05:00)
+            if match := re.search(r'([+-])(\d{2})(\d{2})$', date_str):
+                sign, hours, minutes = match.groups()
+                date_str = date_str[:-5] + f"{sign}{hours}:{minutes}"
         
         return cls(
             application_number=data['applicationNumberText'],
