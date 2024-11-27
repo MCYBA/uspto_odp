@@ -1,10 +1,10 @@
-<table style="border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td style="border: none; padding: 0; vertical-align: middle;">
+<table>
+  <tr>
+    <td>
       <img src="https://github.com/user-attachments/assets/9e4277bc-ee25-4e69-99e0-00e6fb07a53f" alt="uspto_odp_python_logo" width="100">
     </td>
-    <td style="border: none; padding: 0; vertical-align: middle;">
-      <h1 style="margin: 0;">uspto_odp</h1>
+    <td>
+      <h1>uspto_odp</h1>
     </td>
   </tr>
 </table>
