@@ -13,7 +13,6 @@ def client():
 @pytest.mark.asyncio
 async def test_get_patent_documents_success(client):
     client, mock_session = client
-    
     # Complete mock response data exactly matching USPTO API response
     mock_response_data = {
         "documentBag": [
