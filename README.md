@@ -6,7 +6,9 @@ From the USPTO as of November 27, 2024:
 
 This library is designed to support access to the ODP and is built on top of the existing USPTO Developer Hub API.
 
-This library is not designed to be a full featured ORM or database mapper.  It is designed to be a simple, easy to use library for accessing the USPTO API.  Currently, the ODP is in beta and this library is subject to change as the API evolves.
+This library is not designed to be a full featured ORM or database mapper.  It is designed to be a simple, easy to use library for accessing the USPTO API with limited dependencies.
+
+Currently, the ODP is in beta and this library is subject to change as the API evolves.
 
 However, this library will seek to maintain backwards compatibility as much as possible as the ODP evolves.
 
