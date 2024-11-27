@@ -12,6 +12,7 @@ authors = [
 requires-python = ">=3.7"
 dependencies = [
     "aiohttp>=3.11.7",
+    "strenum>=0.4.10",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -24,7 +25,6 @@ dev = [
     "pytest>=7.0",
     "pytest-asyncio",
     "coverage",
-    "strenum>=0.4.10"
 ]
 
 [tool.setuptools]

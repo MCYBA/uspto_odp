@@ -21,7 +21,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 '''
-from enum import StrEnum
+try:
+    from enum import StrEnum  # Python 3.11+
+except ImportError:
+    from strenum import StrEnum  # Python <3.11
 
 class ApplicationStatus(StrEnum):
     """USPTO Application Status Codes and Descriptions"""
