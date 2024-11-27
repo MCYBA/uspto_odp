@@ -70,5 +70,6 @@ To be completed at a later date.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
+<head>
 <meta name="google-site-verification" content="FoArim9Eh-XIhJYE7gG9IPUXq5vgEAb7hI5zCbUVFf4" />
+</head>
