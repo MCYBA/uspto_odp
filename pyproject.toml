@@ -3,13 +3,14 @@ requires = ["setuptools>=64.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "uspto_odp"
-version = "0.1"
+name = "uspto_odp_kenthompson1"
+version = "0.0.1"
 description = "USPTO Open Data Portal Client"
 authors = [
-    {name = "Ken Thompson", email = "your.email@example.com"},
+    {name = "Ken Thompson", email = "kenthompson1@gmail.com"},
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.9"
+readme = "README.md"
 dependencies = [
     "aiohttp>=3.11.7",
     "strenum>=0.4.10",
@@ -43,3 +44,6 @@ pythonpath = ["src"]
 asyncio_mode = "auto"
 testpaths = ["tests"]
 
+[project.urls]
+Homepage = "https://github.com/KennethThompson/uspto_odp"
+Issues = "https://github.com/KennethThompson/uspto_odp/issues"
