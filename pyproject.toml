@@ -3,7 +3,7 @@ requires = ["setuptools>=64.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "uspto_odp_kenthompson1"
+name = "uspto_odp"
 version = "0.0.1"
 description = "USPTO Open Data Portal Client"
 authors = [
