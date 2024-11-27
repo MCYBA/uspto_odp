@@ -1,4 +1,5 @@
-# uspto_odp
+#![DALL·E 2024-11-27 11 48 50 - A creative and modern logo for a Python library named 'uspto_odp', incorporating elements of a Python snake intertwined with abstract shapes like cube](https://github.com/user-attachments/assets/24614fe3-5eb6-435a-b3be-ecda515075d7)
+ uspto_odp
 Simple, lightweight python client library to support access to the USPTO Open Data Portal (ODP)
 
 From the USPTO as of November 27, 2024:
