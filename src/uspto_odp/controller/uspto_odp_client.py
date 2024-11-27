@@ -33,6 +33,10 @@ from uspto_odp.models.foreign_priority import ForeignPriorityCollection
 from uspto_odp.models.patent_transactions import TransactionCollection
 from uspto_odp.models.patent_assignment import AssignmentCollection
 import os
+try:
+    from enum import StrEnum  # Python 3.11+
+except ImportError:
+    from strenum import StrEnum  # Python 3.9+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

@@ -24,6 +24,7 @@ dev = [
     "pytest>=7.0",
     "pytest-asyncio",
     "coverage",
+    "strenum>=0.4.10"
 ]
 
 [tool.setuptools]
