@@ -5,6 +5,14 @@
 
 Simple, lightweight python client library to support access to the USPTO Open Data Portal (ODP)
 
+| Python Version | Build Status |
+|---------------|--------------|
+| 3.9 | ![Python 3.9](https://github.com/KennethThompson/uspto_odp/actions/workflows/python-package-conda.yml/badge.svg?branch=main&python-version=3.9) |
+| 3.10 | ![Python 3.10](https://github.com/KennethThompson/uspto_odp/actions/workflows/python-package-conda.yml/badge.svg?branch=main&python-version=3.10) |
+| 3.11 | ![Python 3.11](https://github.com/KennethThompson/uspto_odp/actions/workflows/python-package-conda.yml/badge.svg?branch=main&python-version=3.11) |
+| 3.12 | ![Python 3.12](https://github.com/KennethThompson/uspto_odp/actions/workflows/python-package-conda.yml/badge.svg?branch=main&python-version=3.12) |
+| 3.13 | ![Python 3.13](https://github.com/KennethThompson/uspto_odp/actions/workflows/python-package-conda.yml/badge.svg?branch=main&python-version=3.13) |
+
 From the USPTO as of November 27, 2024:
 "The new Open Data Portal (ODP) is launching soon, informed by the Developer Hub (Open Data Portal beta) and real customer feedback. The first iteration will include patent data and improved functionality previously found on Patent Examination Data System (PEDS)."
 
