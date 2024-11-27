@@ -6,6 +6,7 @@
 
 Simple, lightweight python client library to support access to the USPTO Open Data Portal (ODP)
 
+
 | Python Version | Build Status |
 |---------------|--------------|
 | 3.9 | ![Python 3.9](https://github.com/KennethThompson/uspto_odp/actions/workflows/python-package-conda.yml/badge.svg?branch=main&python-version=3.9) |
