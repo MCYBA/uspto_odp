@@ -23,9 +23,9 @@ SOFTWARE.
 '''
 from datetime import datetime, timedelta
 from typing import List
-from models.patent_file_wrapper import ApplicationMetadata, PatentFileWrapper
-from models.patent_status import ApplicationStatus, ApplicationStatusDerived
-from models.patent_transactions import TransactionEvent
+from uspto_odp.models.patent_file_wrapper import ApplicationMetadata, PatentFileWrapper
+from uspto_odp.models.patent_status import ApplicationStatus, ApplicationStatusDerived
+from uspto_odp.models.patent_transactions import TransactionEvent
 
 class FileWrapperProps:
     def __init__(self, serial_number: str):

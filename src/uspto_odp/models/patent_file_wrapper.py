@@ -25,7 +25,7 @@ from dataclasses import dataclass, field
 from datetime import date
 from typing import List, Optional
 
-from models.patent_status import ApplicationStatus
+from uspto_odp.models.patent_status import ApplicationStatus
 
 @dataclass
 class Event:
