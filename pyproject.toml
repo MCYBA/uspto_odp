@@ -42,3 +42,4 @@ uspto_odp = ["py.typed", "*.pyi", "**/*.pyi"]
 pythonpath = ["src"]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+
