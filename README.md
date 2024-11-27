@@ -1,6 +1,7 @@
 <div style="display: flex; align-items: center;">
   <img src="https://github.com/user-attachments/assets/9e4277bc-ee25-4e69-99e0-00e6fb07a53f" alt="uspto_odp_python_logo" width="200" style="margin-right: 20px;">
   <h1>Python wrapper for the Beta USPTO Open Data Portal (ODP)</h1>
+  <meta name="google-site-verification" content="FoArim9Eh-XIhJYE7gG9IPUXq5vgEAb7hI5zCbUVFf4" />
 </div>
 
 Simple, lightweight python client library to support access to the USPTO Open Data Portal (ODP)
@@ -70,7 +71,3 @@ To be completed at a later date.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-<head>
-<meta name="google-site-verification" content="FoArim9Eh-XIhJYE7gG9IPUXq5vgEAb7hI5zCbUVFf4" />
-</head>
