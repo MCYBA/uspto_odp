@@ -24,6 +24,7 @@ SOFTWARE.
 from dataclasses import dataclass, field
 from typing import List, Optional
 from datetime import datetime
+import re
 
 @dataclass
 class DownloadOption:
@@ -53,9 +54,16 @@ class PatentDocument:
 
     @classmethod
     def from_dict(cls, data: dict) -> 'PatentDocument':
+        # Format the timezone offset to include a colon
+        date_str = data['officialDate']
+        # Handle timezone offset without colon (e.g., -0500 -> -05:00)
+        if match := re.search(r'([+-])(\d{2})(\d{2})$', date_str):
+            sign, hours, minutes = match.groups()
+            date_str = date_str[:-4] + f"{sign}{hours}:{minutes}"
+        
         return cls(
             application_number=data['applicationNumberText'],
-            official_date=datetime.fromisoformat(data['officialDate'].replace('Z', '+00:00')),
+            official_date=datetime.fromisoformat(date_str),
             document_identifier=data['documentIdentifier'],
             document_code=data['documentCode'],
             document_description=data['documentCodeDescriptionText'],
