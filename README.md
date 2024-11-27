@@ -27,7 +27,43 @@ However, this library will seek to maintain backwards compatibility as much as p
 Note: You must have an API key to use this library. You can learn more about how to get an API key at [USPTO Developer Hub](https://developer.uspto.gov/). For up-to-date USPTO information regarding updates to the Open Data Portal, please visit [USPTO Open Data Portal](https://data.uspto.gov/).
 
 ## Installation
-To be completed at a later date.
+
+### Prerequisites
+- Python 3.9 or higher
+- pip (Python package installer)
+
+### From PyPI (Recommended)
+```bash
+pip install uspto_odp
+```
+
+### From Source
+1. Clone the repository:
+```bash
+git clone https://github.com/KennethThompson/uspto_odp.git
+cd uspto_odp
+```
+
+2. Install the package in development mode:
+```bash
+pip install -e .
+```
+
+### Development Installation
+If you plan to contribute or modify the code, install with development dependencies:
+```bash
+pip install -e ".[dev]"
+```
+
+### API Key Required
+Before using the library, you'll need to obtain an API key from the USPTO Developer Hub. Visit [USPTO Developer Hub](https://developer.uspto.gov/) to request your API key.
+
+### Verify Installation
+You can verify the installation by running:
+```python
+import uspto_odp
+print(uspto_odp.__version__)
+```
 
 ## Usage
 To be completed at a later date.
