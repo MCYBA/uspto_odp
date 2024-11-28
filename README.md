@@ -26,7 +26,7 @@ Currently, the ODP is in beta and this library is subject to change as the API e
 
 However, this library will seek to maintain backwards compatibility as much as possible as the ODP evolves.
 
-Note: You must have an API key to use this library. You can learn more about how to get an API key at [USPTO Developer Hub](https://developer.uspto.gov/). For up-to-date USPTO information regarding updates to the Open Data Portal, please visit [USPTO Open Data Portal](https://data.uspto.gov/).
+Note: You must have an API key to use this library. You can learn more about how to get an API key at [getting-started](https://beta-data.uspto.gov/apis/getting-started). For up-to-date USPTO information regarding updates to the Open Data Portal, please visit [USPTO Open Data Portal](https://data.uspto.gov/).
 
 # Status of uspto_odp wrapper support for USPTO API endpoints 
 
