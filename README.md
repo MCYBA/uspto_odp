@@ -38,14 +38,14 @@ Note: You must have an API key to use this library. You can learn more about how
 | `POST /api/v1/patent/applications/search/download` | 🚧 | Download patent data by supplying json payload |
 | `GET /api/v1/patent/applications/{applicationNumberText}` | ✅ | Patent application data for a provided application number |
 | `GET /api/v1/patent/applications/{applicationNumberText}/meta-data` | ✅ | Get patent application meta data |
-| `GET /api/v1/patent/applications/{applicationNumberText}/adjustment` | ✅ | Get patent term adjustment data for an application number |
-| `GET /api/v1/patent/applications/{applicationNumberText}/assignment` | ✅ | Get patent assignment data for an application number |
-| `GET /api/v1/patent/applications/{applicationNumberText}/attorney` | ✅ | Get attorney/agent data for an application number |
+| `GET /api/v1/patent/applications/{applicationNumberText}/adjustment` | 🚧 | Get patent term adjustment data for an application number |
+| `GET /api/v1/patent/applications/{applicationNumberText}/assignment` | 🚧 | Get patent assignment data for an application number |
+| `GET /api/v1/patent/applications/{applicationNumberText}/attorney` | 🚧 | Get attorney/agent data for an application number |
 | `GET /api/v1/patent/applications/{applicationNumberText}/continuity` | ✅ | Get continuity data for an application number |
 | `GET /api/v1/patent/applications/{applicationNumberText}/foreign-priority` | ✅ | Get foreign-priority data for an application number |
 | `GET /api/v1/patent/applications/{applicationNumberText}/transactions` | ✅ | Get transaction data for an application number |
 | `GET /api/v1/patent/applications/{applicationNumberText}/documents` | ✅ | Documents details for an application number |
-| `GET /api/v1/patent/applications/{applicationNumberText}/associated-documents` | ✅ | Associated documents meta-data for an application |
+| `GET /api/v1/patent/applications/{applicationNumberText}/associated-documents` | 🚧 | Associated documents meta-data for an application |
 
 ## Legend
 - ✅ Implemented and Available
