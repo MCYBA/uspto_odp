@@ -101,11 +101,35 @@ class USPTOClient:
         )
 
     async def get_patent_wrapper(self, serial_number: str) -> PatentFileWrapper:
+        """
+        Retrieve the patent application wrapper information.
+
+        Args:
+            serial_number (str): The USPTO patent application serial number (e.g., '16123456')
+
+        Returns:
+            PatentFileWrapper: Object containing patent wrapper information
+
+        Raises:
+            USPTOError: If the API request fails
+        """
         url = f"{self.BASE_URL}/{serial_number}"
         async with self.session.get(url, headers=self.headers) as response:
             return await self._handle_response(response, PatentFileWrapper.parse_response)
 
     async def get_patent_documents(self, serial_number: str) -> PatentDocumentCollection:
+        """
+        Retrieve all documents associated with a patent application.
+
+        Args:
+            serial_number (str): The USPTO patent application serial number (e.g., '16123456')
+
+        Returns:
+            PatentDocumentCollection: Collection of patent documents
+
+        Raises:
+            USPTOError: If the API request fails
+        """
         url = f"{self.BASE_URL}/{serial_number}/documents"
         async with self.session.get(url, headers=self.headers) as response:
             return await self._handle_response(response, PatentDocumentCollection.from_dict)
@@ -117,6 +141,26 @@ class USPTOClient:
         filename: Optional[str] = None,
         mime_type: str = "PDF"
     ) -> str:
+        """
+        Download a specific patent document to local storage.
+
+        Args:
+            document (PatentDocument): The patent document object to download
+            save_path (str): Directory path where the file should be saved
+            filename (Optional[str]): Custom filename for the downloaded document. 
+                                    If None, generates automatic filename
+            mime_type (str): Document format to download. Options: "PDF", "MS_WORD", "XML"
+
+        Returns:
+            str: Full path to the downloaded file
+
+        Raises:
+            FileNotFoundError: If save_path doesn't exist
+            PermissionError: If save_path isn't writable
+            ValueError: If requested mime_type isn't available
+            USPTOError: If the API request fails
+            Exception: If download fails
+        """
         if not os.path.exists(save_path):
             raise FileNotFoundError(f"Save path does not exist: {save_path}")
         if not os.access(save_path, os.W_OK):
@@ -159,21 +203,69 @@ class USPTOClient:
         return full_path
 
     async def get_patent_continuity(self, serial_number: str) -> ContinuityCollection:
+        """
+        Retrieve continuity information for a patent application.
+
+        Args:
+            serial_number (str): The USPTO patent application serial number (e.g., '16123456')
+
+        Returns:
+            ContinuityCollection: Collection of continuity relationships
+
+        Raises:
+            USPTOError: If the API request fails
+        """
         url = f"{self.BASE_URL}/{serial_number}/continuity"
         async with self.session.get(url, headers=self.headers) as response:
             return await self._handle_response(response, ContinuityCollection.from_dict)
 
     async def get_foreign_priority(self, serial_number: str) -> ForeignPriorityCollection:
+        """
+        Retrieve foreign priority claims for a patent application.
+
+        Args:
+            serial_number (str): The USPTO patent application serial number (e.g., '16123456')
+
+        Returns:
+            ForeignPriorityCollection: Collection of foreign priority claims
+
+        Raises:
+            USPTOError: If the API request fails
+        """
         url = f"{self.BASE_URL}/{serial_number}/foreign-priority"
         async with self.session.get(url, headers=self.headers) as response:
             return await self._handle_response(response, ForeignPriorityCollection.from_dict)
 
     async def get_patent_transactions(self, serial_number: str) -> TransactionCollection:
+        """
+        Retrieve transaction history for a patent application.
+
+        Args:
+            serial_number (str): The USPTO patent application serial number (e.g., '16123456')
+
+        Returns:
+            TransactionCollection: Collection of patent transactions
+
+        Raises:
+            USPTOError: If the API request fails
+        """
         url = f"{self.BASE_URL}/{serial_number}/transactions"
         async with self.session.get(url, headers=self.headers) as response:
             return await self._handle_response(response, TransactionCollection.from_dict)
 
     async def get_patent_assignments(self, serial_number: str) -> AssignmentCollection:
+        """
+        Retrieve assignment information for a patent application.
+
+        Args:
+            serial_number (str): The USPTO patent application serial number (e.g., '16123456')
+
+        Returns:
+            AssignmentCollection: Collection of patent assignments
+
+        Raises:
+            USPTOError: If the API request fails
+        """
         url = f"{self.BASE_URL}/{serial_number}/assignment"
         async with self.session.get(url, headers=self.headers) as response:
             return await self._handle_response(response, AssignmentCollection.from_dict)
