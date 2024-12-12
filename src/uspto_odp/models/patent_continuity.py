@@ -153,3 +153,30 @@ def get_earliest_parent_filing_date(parent_continuities: List[ParentContinuity])
             earliest_date = parent.parent_filing_date
             
     return earliest_date
+
+def get_earliest_parent_obj(parent_continuities: List[ParentContinuity]) -> Optional[date]:
+    """
+    Finds the earliest parent among parent applications, ignoring provisional applications.
+    
+    Args:
+        parent_continuities: List of ParentContinuity objects
+        
+    Returns:
+        The earliest parent found, or None if no valid parents exist
+    """
+    earliest_parent = None
+    for parent in parent_continuities:
+        # Skip provisional applications
+        if parent.claim_parentage_code == 'PRO':
+            continue
+            
+        # Initialize earliest_date if not set
+        if earliest_parent is None:
+            earliest_parent = parent
+            continue
+            
+        # Compare dates and keep the earlier one
+        if parent.parent_filing_date < earliest_parent.parent_filing_date:
+            earliest_parent = parent
+            
+    return earliest_parent

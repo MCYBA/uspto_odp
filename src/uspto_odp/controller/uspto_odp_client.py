@@ -202,7 +202,7 @@ class USPTOClient:
         
         return full_path
 
-    async def get_patent_continuity(self, serial_number: str) -> ContinuityCollection:
+    async def get_continuity(self, serial_number: str) -> ContinuityCollection:
         """
         Retrieve continuity information for a patent application.
 
