@@ -7,6 +7,12 @@ from uspto_odp.models.patent_continuity import (
     ContinuityCollection,
     ContinuityData,
 )
+from uspto_odp.models.patent_file_wrapper import (
+    PatentFileWrapper,
+    Event,
+    Inventor,
+    ApplicationMetadata
+)
 
 try:
     __version__ = version("uspto_odp")
@@ -18,6 +24,10 @@ __all__ = [
     'controller',
     'models',
     '__version__',
+    'PatentFileWrapper',
+    'Event',
+    'Inventor',
+    'ApplicationMetadata',
     'ParentContinuity',
     'ChildContinuity',
     'ContinuityCollection',
