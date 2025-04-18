@@ -269,3 +269,78 @@ class USPTOClient:
         url = f"{self.BASE_URL}/{serial_number}/assignment"
         async with self.session.get(url, headers=self.headers) as response:
             return await self._handle_response(response, AssignmentCollection.from_dict)
+
+    async def search_patent_applications(self, payload: dict) -> dict:
+        """
+        Search for patent applications using a JSON payload.
+        
+        Endpoint: /api/v1/patent/applications/search
+        
+        Args:
+            payload (dict): The search criteria as a JSON-compatible dictionary.
+                           Can include fields like query text, sort options, filters, etc.
+                           
+        Returns:
+            dict: The search results as returned by the USPTO API
+            
+        Raises:
+            USPTOError: If the API request fails (400, 403, 404, 413, 500)
+        """
+        url = f"{self.BASE_URL}/search"
+        async with self.session.post(url, json=payload, headers=self.headers) as response:
+            return await self._handle_response(response, lambda x: x)  # Return raw JSON response
+
+    async def get_app_metadata_from_patent_number(self, patent_number: str) -> Optional[dict]:
+        """
+        Get the application metadata associated with a patent number.
+        
+        Args:
+            patent_number (str): The patent number to search for (e.g., "US9,022,434" or "9022434")
+            
+        Returns:
+            Optional[str]: The application number if found, None otherwise
+            
+        Raises:
+            USPTOError: If the API request fails
+        """
+        # Sanitize the patent number by removing "US" prefix and any non-digit characters
+        sanitized_patent = ''.join(c for c in patent_number if c.isdigit())
+        
+        # Create the search payload
+        payload = {
+            "q" : "applicationMetaData.patentNumber:" + sanitized_patent,
+            "filters": [
+                {
+                    "name": "applicationMetaData.applicationTypeLabelName",
+                    "value": ["Utility"]
+                },
+                {
+                    "name": "applicationMetaData.publicationCategoryBag",
+                    "value": ["Granted/Issued"]
+                }
+            ],
+            "sort": [
+                {
+                    "field": "applicationMetaData.filingDate",
+                    "order": "desc"
+                }
+            ],
+            "pagination": {
+                "offset": 0,
+                "limit": 25
+            },
+            "fields": ["applicationNumberText", "applicationMetaData"],
+            "facets": [
+                "applicationMetaData.applicationTypeLabelName"
+            ]        
+        }
+        
+        # Make the search request
+        response = await self.search_patent_applications(payload)
+        
+        # Check if we got results
+        if response.get('count', 0) > 0 and 'patentFileWrapperDataBag' in response:
+            # Return the application number from the first result
+            return response['patentFileWrapperDataBag'][0]
+        
+        return None
