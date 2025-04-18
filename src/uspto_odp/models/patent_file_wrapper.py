@@ -99,7 +99,9 @@ class ApplicationMetadata:
     invention_title: str
     patent_number: Optional[str] = None
     grant_date: Optional[date] = None
-    
+    confirmation_number: Optional[str] = None
+    group_art_unit_number: Optional[str] = None
+    examiner_name: Optional[str] = None
     @property
     def status(self) -> str:
         """Returns the string description of the application status"""
@@ -118,6 +120,9 @@ class ApplicationMetadata:
             first_inventor_name=data['firstInventorName'],
             invention_title=data['inventionTitle'],
             patent_number=data.get('patentNumber'),
+            confirmation_number=data.get('applicationConfirmationNumber'),
+            group_art_unit_number=data.get('groupArtUnitNumber'),
+            examiner_name=data.get('examinerNameText'),
             grant_date=date.fromisoformat(data['grantDate']) if 'grantDate' in data else None
         )
 
@@ -128,6 +133,7 @@ class PatentFileWrapper:
     events: List[Event]
     metadata: ApplicationMetadata
     inventors: List[Inventor]
+    confirmation_number: Optional[str] = None
 
     @classmethod
     def from_dict(cls, data: dict) -> 'PatentFileWrapper':
@@ -138,7 +144,8 @@ class PatentFileWrapper:
             events=[Event.from_dict(event) for event in wrapper_data['eventDataBag']],
             metadata=ApplicationMetadata.from_dict(wrapper_data['applicationMetaData']),
             inventors=[Inventor.from_dict(inv) for inv in 
-                      wrapper_data['applicationMetaData'].get('inventorBag', [])]
+                      wrapper_data['applicationMetaData'].get('inventorBag', [])],
+            confirmation_number=wrapper_data['applicationMetaData'].get('applicationConfirmationNumber')
         )
 
     @classmethod
