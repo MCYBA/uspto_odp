@@ -9,7 +9,7 @@ description = "USPTO Open Data Portal Client"
 authors = [
     {name = "Ken Thompson", email = "kenthompson1@gmail.com"},
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 readme = "README.md"
 dependencies = [
     "aiohttp>=3.11.7",
